@@ -1,0 +1,8 @@
+ 
+WARNING! PFRTP uses the GRI-Mech 3.0 kinetic mechanism to estimate the composition of flame off-gas given the input stoichiometric ratio. The subsequent evolution of that gas in the PFR system is based on the input kinetic mechanism. GRI-Mech 3.0 contains 18 species that were not identified in the input mechanism: CH2 NH NH2 NH3 NNH NO NO2 N2O HNO CN HCN H2CN HCNN HCNO HOCN HNCO NCO CH2CHO
+You may wish to (a) check if any of the listed species are included in the input mechanism using a different name and rename them accordingly and/or (b) confirm that the listed species are not relevant in this case.
+The GRI-Mech 3.0 file used by PFRTP can be found at files
+ 
+ 
+plots of temperature profile fit saved to output folder
+PFR simulation running...

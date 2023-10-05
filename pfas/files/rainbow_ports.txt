@@ -1,0 +1,22 @@
+burner @ 0 inches
+port 1 @ 6 inches
+port 2 @ 18 inches
+port 3 @ 30 inches
+port 4 @ 55 inches
+port 5 @ 67 inches
+port 6 @ 79 inches
+port 7 @ 91 inches
+port 8 @ 103 inches
+port 9 @ 115 inches
+port 10 @ 127 inches
+port 11 @ 139 inches
+port 12 @ 151 inches
+port 13 @ 163 inches
+port 14 @ 182.5 inches
+port 15 @ 201 inches
+port 16 @ 213 inches
+port 17 @ 225 inches
+port 18 @ 237 inches
+port 19 @ 249 inches
+port 20 @ 261 inches
+port 21 @ 273 inches
