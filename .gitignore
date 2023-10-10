@@ -1,3 +1,8 @@
+*
+!*.py
+!*.ipynb
+!*.txt
+!.yaml
 *.vtk
 # .net and .netj files
 *.net
@@ -166,10 +171,8 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 *.netj
-*.netj
 cfs_para_test_cond/0000_docs/1110_rainbow_34kW_CF4_port1.netj
 cfs_para_test_cond/0000_docs/1110_rainbow_34kW_CF4_port1.netj
-*.netj
 cfs_para_test_cond/1110_34kW_CF4_port1/CFD_TIME
 cfs_para_test_cond/1110_34kW_CF4_port1/CFD_TIME
 cfs_para_test_cond/1110_34kW_CF4_port1/DATA
