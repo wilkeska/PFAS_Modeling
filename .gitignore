@@ -3,6 +3,8 @@
 !*.ipynb
 !*.txt
 !.yaml
+!cfs_runs
+!*stream
 *.vtk
 # .net and .netj files
 *.net
