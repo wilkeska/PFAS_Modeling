@@ -3,7 +3,7 @@ import os
 
 pvpython_path = "C:\\Program Files\\ParaView 5.11.2\\bin\\pvpython.exe"
 
-run_folder = '14.275.16_27.5kW_CF4_port4_16stream'
+run_folder = '38.45.16_45kW_C2F6_port8_16stream'
 main_dir = os.path.join(os.getenv('USERPROFILE'), 'Desktop', 'PFAS_Modeling', 'cfs_runs')
 destruct_file = os.path.join(main_dir, run_folder, 'excel\\destruct.csv')
 destruct_file = destruct_file.replace('\\','/')
