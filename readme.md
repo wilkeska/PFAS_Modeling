@@ -4,7 +4,7 @@
 2. Run [cfs_batchrun.ipynb](cfs_batchrun.ipynb) to send the generated .netj files to CFS and run the simulations
 3. Run [PFRTP-Garrett.ipynb](PFRTP-Garrett.ipynb) to use Cantera to perform the same simulations. This will generate dot files for the path diagram created by the Cantera simulation, which will be used to select which species are relevant for the CFS path diagram. (Not all species available should be chosen, as CFS *will* crash)
 4. Run [cfs_post.ipynb](cfs_post.ipynb), and select .netj files. The program will run the GUI form of CFS, and use the dot file from PFRTP-Garrett Cantera simulation of the same conditions to choose which species data to include in the vtk file. The program can handle multiple files, and will go through them in sequence. `<font color=red>` **IMPORTANT** `</font>` DO NOT MOVE THE MOUSE UNTIL THE SCRIPT COMPLETES!
-5. Run [cfs2canteraPD_stable.ipynb](cfs2canteraPD_stable.ipynb) to generate path diagrams using Cantera from the streamline_pp.vtk file. Path diagrams are specific to trajectory, residence time, and the threshold for the minimum relative flux to qualify as a major species.
+5. Run [cfs2canteraPD.ipynb](cfs2canteraPD.ipynb) to generate path diagrams using Cantera from the streamline_pp.vtk file. Path diagrams are specific to trajectory, residence time, and the threshold for the minimum relative flux to qualify as a major species.
 
 # Problems
 
