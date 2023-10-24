@@ -5,6 +5,7 @@
 !.yaml
 !cfs_runs
 !*stream
+!readme.md
 *.vtk
 # .net and .netj files
 *.net
