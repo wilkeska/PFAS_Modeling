@@ -1,3 +1,23 @@
+# TODO
+
+<h4>cfs2canteraPD</h4>
+
+1. Get injected_species from netj_file
+2. Get conc_cutoff from netj_file (inject conc)
+3. Make it run PFRTP-Garrett and cfs_post if needed
+4. 
+
+<h4>cfs_post</h4>
+
+1. Make trajectory selection faster
+2. Make it run PFRTP-Garrett if needed
+
+<h4>PFRTP-Garrett</h4>
+
+1. Make interactive widget to choose run conditions
+2. Fix thing with flame temperature estimate
+3. Temperatures shouldn't go down then back up
+
 # Instructions
 
 1. Run [netj_generate.ipynb](netj_generate.ipynb "netj_generate.ipynb") to generate input files from lists of run conditions
@@ -142,4 +162,128 @@
     <td colspan="1" style="border-bottom: 2px solid white;">   ✓   </td><!-- C2F6 6-->
     <td colspan="1" style="border-right: 2px solid white; border-bottom: 2px solid white;"> ✓    </td> <!-- C2F6 8-->
   </tr>
+</table>
+
+<table border='1'>
+<caption><h4>Executed Simulations - CFS</h4></caption>
+<thead>
+<tr><!-- headers -->
+<th ></th>
+<th colspan='4' style='border-right: 2px solid white; border-left: 2px solid white; text-align: center'>CF4</th>
+<th colspan='4' style='border-right: 2px solid white; text-align: center'>CHF3</th>
+<th colspan='4' style='border-right: 2px solid white; text-align: center'>C2F6</th>
+</tr>
+</thead>
+<tr>
+<td rowspan='2' style='border-right: 2px solid white; border-left: 2px solid white;'></td>
+<td colspan='4' style='border-right: 2px solid white; text-align: center'>Ports</td>
+<td colspan='4' style='border-right: 2px solid white; text-align: center'>Ports</td>
+<td colspan='4' style='border-right: 2px solid white; text-align: center'>Ports</td>
+</tr>
+<tr>
+<td style='border-bottom: 2px solid white;'>1</td>
+<td style='border-bottom: 2px solid white;'>4</td>
+<td style='border-bottom: 2px solid white;'>6</td>
+<td style='border-right: 2px solid white;border-bottom: 2px solid white;'>8</td>
+<td style='border-bottom: 2px solid white;'>1</td>
+<td style='border-bottom: 2px solid white;'>4</td>
+<td style='border-bottom: 2px solid white;'>6</td>
+<td style='border-right: 2px solid white;border-bottom: 2px solid white;'>8</td>
+<td style='border-bottom: 2px solid white;'>1</td>
+<td style='border-bottom: 2px solid white;'>4</td>
+<td style='border-bottom: 2px solid white;'>6</td>
+<td style='border-right: 2px solid white;border-bottom: 2px solid white;'>8</td>
+</tr>
+<tr>
+<td style='border-right: 2px solid white; border-left: 2px solid white;'>27.5 kW</td>
+<td colspan='1'>    </td><!-- CF4 1-->
+<td colspan='1'>  ✓  </td><!-- CF4 4-->
+<td colspan='1'>    </td><!-- CF4 6-->
+<td colspan='1'  style='border-right: 2px solid white;'>      </td><!-- CF4 8-->
+<td colspan='1'>    </td><!-- CHF3 1-->
+<td colspan='1'>    </td><!-- CHF3 4-->
+<td colspan='1'>    </td><!-- CHF3 6-->
+<td colspan='1' style='border-right: 2px solid white;'>    </td><!-- CHF3 8-->
+<td colspan='1'>  ✓  </td><!-- C2F6 1-->
+<td colspan='1'>  ✓  </td><!-- C2F6 4-->
+<td colspan='1'>   ✓ </td><!-- C2F6 6-->
+<td colspan='1' style='border-right: 2px solid white;'>  ✓  </td><!-- C2F6 8-->
+</tr>
+<tr>
+<td style='border-right: 2px solid white; border-left: 2px solid white; border-bottom: 2px solid white;'>45 kW</td>
+<td colspan='1' style='border-bottom: 2px solid white;'>  ✓    </td><!-- CF4 1-->
+<td colspan='1' style='border-bottom: 2px solid white;'>  ✓    </td><!-- CF4 4-->
+<td colspan='1' style='border-bottom: 2px solid white;'>      </td><!-- CF4 6-->
+<td colspan='1' style='border-right: 2px solid white; border-bottom: 2px solid white;'>     </td><!-- CF4 8-->
+<td colspan='1' style='border-bottom: 2px solid white;'>  ✓    </td><!-- CHF3 1-->
+<td colspan='1' style='border-bottom: 2px solid white;'> ✓     </td><!-- CHF3 4-->
+<td colspan='1' style='border-bottom: 2px solid white;'>   ✓   </td><!-- CHF3 6-->
+<td colspan='1' style='border-right: 2px solid white; border-bottom: 2px solid white;' >    </td><!-- CHF3 8-->
+<td colspan='1' style='border-bottom: 2px solid white;'> ✓     </td><!-- C2F6 1-->
+<td colspan='1' style='border-bottom: 2px solid white;'>  ✓    </td><!-- C2F6 4-->
+<td colspan='1' style='border-bottom: 2px solid white;'>   ✓   </td><!-- C2F6 6-->
+<td colspan='1' style='border-right: 2px solid white; border-bottom: 2px solid white;'>  ✓   </td><!-- C2F6 8-->
+</tr>
+</table>
+
+<table border='1'>
+<caption><h4>Executed Simulations - Cantera</h4></caption>
+<thead>
+<tr><!-- headers -->
+<th ></th>
+<th colspan='4' style='border-right: 2px solid white; border-left: 2px solid white; text-align: center'>CF4</th>
+<th colspan='4' style='border-right: 2px solid white; text-align: center'>CHF3</th>
+<th colspan='4' style='border-right: 2px solid white; text-align: center'>C2F6</th>
+</tr>
+</thead>
+<tr>
+<td rowspan='2' style='border-right: 2px solid white; border-left: 2px solid white;'></td>
+<td colspan='4' style='border-right: 2px solid white; text-align: center'>Ports</td>
+<td colspan='4' style='border-right: 2px solid white; text-align: center'>Ports</td>
+<td colspan='4' style='border-right: 2px solid white; text-align: center'>Ports</td>
+</tr>
+<tr>
+<td style='border-bottom: 2px solid white;'>1</td>
+<td style='border-bottom: 2px solid white;'>4</td>
+<td style='border-bottom: 2px solid white;'>6</td>
+<td style='border-right: 2px solid white;border-bottom: 2px solid white;'>8</td>
+<td style='border-bottom: 2px solid white;'>1</td>
+<td style='border-bottom: 2px solid white;'>4</td>
+<td style='border-bottom: 2px solid white;'>6</td>
+<td style='border-right: 2px solid white;border-bottom: 2px solid white;'>8</td>
+<td style='border-bottom: 2px solid white;'>1</td>
+<td style='border-bottom: 2px solid white;'>4</td>
+<td style='border-bottom: 2px solid white;'>6</td>
+<td style='border-right: 2px solid white;border-bottom: 2px solid white;'>8</td>
+</tr>
+<tr>
+<td style='border-right: 2px solid white; border-left: 2px solid white;'>27.5 kW</td>
+<td colspan='1'>  ✓  </td><!-- CF4 1-->
+<td colspan='1'>  ✓  </td><!-- CF4 4-->
+<td colspan='1'>  ✓  </td><!-- CF4 6-->
+<td colspan='1'  style='border-right: 2px solid white;'>   ✓   </td><!-- CF4 8-->
+<td colspan='1'>    </td><!-- CHF3 1-->
+<td colspan='1'>    </td><!-- CHF3 4-->
+<td colspan='1'>    </td><!-- CHF3 6-->
+<td colspan='1' style='border-right: 2px solid white;'>    </td><!-- CHF3 8-->
+<td colspan='1'> ✓   </td><!-- C2F6 1-->
+<td colspan='1'>  ✓  </td><!-- C2F6 4-->
+<td colspan='1'> ✓   </td><!-- C2F6 6-->
+<td colspan='1' style='border-right: 2px solid white;'>  ✓  </td><!-- C2F6 8-->
+</tr>
+<tr>
+<td style='border-right: 2px solid white; border-left: 2px solid white; border-bottom: 2px solid white;'>45 kW</td>
+<td colspan='1' style='border-bottom: 2px solid white;'>   ✓   </td><!-- CF4 1-->
+<td colspan='1' style='border-bottom: 2px solid white;'>   ✓   </td><!-- CF4 4-->
+<td colspan='1' style='border-bottom: 2px solid white;'>  ✓    </td><!-- CF4 6-->
+<td colspan='1' style='border-right: 2px solid white; border-bottom: 2px solid white;'>  ✓   </td><!-- CF4 8-->
+<td colspan='1' style='border-bottom: 2px solid white;'>      </td><!-- CHF3 1-->
+<td colspan='1' style='border-bottom: 2px solid white;'>      </td><!-- CHF3 4-->
+<td colspan='1' style='border-bottom: 2px solid white;'>      </td><!-- CHF3 6-->
+<td colspan='1' style='border-right: 2px solid white; border-bottom: 2px solid white;' >    </td><!-- CHF3 8-->
+<td colspan='1' style='border-bottom: 2px solid white;'>   ✓   </td><!-- C2F6 1-->
+<td colspan='1' style='border-bottom: 2px solid white;'>   ✓   </td><!-- C2F6 4-->
+<td colspan='1' style='border-bottom: 2px solid white;'>   ✓   </td><!-- C2F6 6-->
+<td colspan='1' style='border-right: 2px solid white; border-bottom: 2px solid white;'>  ✓   </td><!-- C2F6 8-->
+</tr>
 </table>
