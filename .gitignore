@@ -8,6 +8,7 @@
 !readme.md
 !readme.tex
 !readme.pdf
+!.tmp
 *.vtk
 # .net and .netj files
 *.net
