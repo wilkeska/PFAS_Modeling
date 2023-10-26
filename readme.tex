@@ -12,26 +12,30 @@
 \usepackage[legalpaper, portrait, margin=1in]{geometry}
 \begin{document}
 
-\section*{TODO}
+\section*{TODOp}
 \begin{enumerate}
     \item Find how garrett made charts in his manuscript 
     \item Make charts better or change input data
+    \item Do comparisons of Cl species with F species
+    \begin{enumerate}
+        \item Garrett seems to have started doing that in lagrangian hi res mass frac.ipynb, but he doesn't include measured Cl data.
+    \end{enumerate}
 \end{enumerate}
 
-\subsection*{cfs2canteraPD}
+\subsubsection*{cfs2canteraPD}
 \begin{enumerate}
     \item Get injected\_species from netj\_file
     \item Get conc\_cutoff from netj\_file (inject conc)
     \item Make it run PFRTP-Garrett and cfs\_post if needed
 \end{enumerate}
 
-\subsection*{cfs\_post}
+\subsubsection*{cfs\_post}
 \begin{enumerate}
     \item Make trajectory selection faster
     \item Make it run PFRTP-Garrett if needed
 \end{enumerate}
 
-\subsection*{PFRTP-Garrett}
+\subsubsection*{PFRTP-Garrett}
 \begin{enumerate}
     \item Make interactive widget to choose run conditions
     \item Fix thing with flame temperature estimate
@@ -51,20 +55,32 @@
 \begin{enumerate}
     \item There are many many .ipynb files in Modeling\_GPD, many of which are near duplicates of each other, scattered across folders. It is difficult to tell which ones are the most up to date and which ones are obsolete.
     \item Residence Time column from cantera has no duplicate times. CFS will have 3-7 rows of identical times
+    \item Cantera increases time steps constantly, CFS has variable time steps
     \item Concentrations of non-major species in cantera are around 1e-100, in CFS they are around 1e-15
     \begin{enumerate}
         \item Produces problems for reaction path diagrams because cantera can’t tell which is the major species
         \item Concentrations are all 0 until injection, then they all instantly increase
-        \item CFS spray settings may introduce significant concentrations from transient phase?
+        \begin{enumerate}
+            \item This is probably because the transient solution solves from the injection point and then tries to work backwards to the flame. Injecting at the flame may fix this.
+        \end{enumerate}
     \end{enumerate}
     \item CF3Or has ~15 reactions, CF2s has ~74, CF4 ~15, C2F6 ~6. C2F6 behavior in path diagrams may be caused by incomplete reactions
+    \begin{enumerate}
+        \item C2F6 may just not have that many reactions because it is a larger molecule, and the C-C bond is the most likely to break
+    \end{enumerate}
     \item Several reactions are “ambiguous” and cantera will use the designated default reaction
     \begin{enumerate}
         \item Default reaction may not be conducive for simulating C2F6
     \end{enumerate}
     \item Some reactions are not parsed (they may just not be relevant)
 \end{enumerate}
-\begin{table}[H]
+\section*{Notes}
+\begin{enumerate}
+    \item CF4 will never be destroyed at temps below 1200K, 100\% DE for temps >1600 C
+    \item Higher values of MAXIT seem to produce more residence time steps
+\end{enumerate}
+\pagebreak
+\begin{table}[H] %files, paths, and descriptions
 \centering
 \renewcommand{\arraystretch}{1.256}
 \caption{Files, Paths, and Descriptions}
