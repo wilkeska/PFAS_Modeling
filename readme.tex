@@ -88,11 +88,12 @@
 
 \normalsize{\textbf{File}} & \normalsize{\textbf{Path}} & \normalsize{\textbf{Description}} \\\cmidrule(r){1-1}\cmidrule(lr){2-2}\cmidrule(l){3-3}
 
-netj\_generate.ipynb & path & Takes a set of varying run conditions and produces netj files to do all iterations \\
-cfs\_batchrun.ipynb & path1 & Uses CFS batch method to run generated netj files, prompts user for inputs to determine simulation duration \\
-PFRTP-Garrett.ipynb & path2 & Uses a PFR simulation in Cantera to make similar results as CFS \\
-cfs\_post.ipynb & path3 & Runs CFS in GUI mode to automate post-processing of vtk files to include species concentration \\
-cfs2canteraPD.ipynb & path4 & Converts vtk to csv data, then produces a path diagram using Cantera for a specified trajectory, residence time, and threshold. \\
+flow\_convert.ipynb & PFAS\_Modeling/ & Converts liters per minute to kilograms per second for air and for CH4 using cantera \\
+netj\_generate.ipynb & PFAS\_Modeling/ & Takes a set of varying run conditions and produces netj files to do all iterations \\
+cfs\_batchrun.ipynb & PFAS\_Modeling/ & Uses CFS batch method to run generated netj files, prompts user for inputs to determine simulation duration \\
+PFRTP-Garrett.ipynb & PFAS\_Modeling/Pseudo\_PFR & Uses a PFR simulation in Cantera to make similar results as CFS \\
+cfs\_post.ipynb & PFAS\_Modeling/ & Runs CFS in GUI mode to automate post-processing of vtk files to include species concentration \\
+cfs2canteraPD.ipynb & PFAS\_Modeling/ & Converts vtk to csv data, then produces a path diagram using Cantera for a specified trajectory, residence time, and threshold. \\
 lagrangian hi res mass frac.ipynb & L:/Lab/AMCD\_PFAS\_Incineration/Modeling\_GPD/ Cantera/PFR DE S Curves/ & Makes plots of multiple species DE\% vs Temperature \\
 eulerian \(<\)injectant\(>\).ipynb & L:/Lab/AMCD\_PFAS\_Incineration/Modeling\_GPD/ Cantera/influent\ concentration/ & Make multidimensional color plots for conc. vs Temperature vs DE\%. Also absolute and relative yield vs conc. \\
 paths \(<\)SR\(>\).ipynb & L:/Lab/AMCD\_PFAS\_Incineration/Modeling\_GPD/ Cantera/paths/ & Makes path diagrams for several species at specified SR \\
