@@ -1,11 +1,13 @@
 # TODO
 
+1. Find how garrett made charts in his manuscript
+2. Make charts better or change input data
+
 <h4>cfs2canteraPD</h4>
 
 1. Get injected_species from netj_file
 2. Get conc_cutoff from netj_file (inject conc)
 3. Make it run PFRTP-Garrett and cfs_post if needed
-4. 
 
 <h4>cfs_post</h4>
 
@@ -20,11 +22,11 @@
 
 # Instructions
 
-1. Run [netj_generate.ipynb](netj_generate.ipynb "netj_generate.ipynb") to generate input files from lists of run conditions
-2. Run [cfs_batchrun.ipynb](cfs_batchrun.ipynb) to send the generated .netj files to CFS and run the simulations
-3. Run [PFRTP-Garrett.ipynb](PFRTP-Garrett.ipynb) to use Cantera to perform the same simulations. This will generate dot files for the path diagram created by the Cantera simulation, which will be used to select which species are relevant for the CFS path diagram. (Not all species available should be chosen, as CFS *will* crash)
-4. Run [cfs_post.ipynb](cfs_post.ipynb), and select .netj files. The program will run the GUI form of CFS, and use the dot file from PFRTP-Garrett Cantera simulation of the same conditions to choose which species data to include in the vtk file. The program can handle multiple files, and will go through them in sequence. `<font color=red>` **IMPORTANT** `</font>` DO NOT MOVE THE MOUSE UNTIL THE SCRIPT COMPLETES!
-5. Run [cfs2canteraPD.ipynb](cfs2canteraPD.ipynb) to generate path diagrams using Cantera from the streamline_pp.vtk file. Path diagrams are specific to trajectory, residence time, and the threshold for the minimum relative flux to qualify as a major species.
+1. Run[netj_generate.ipynb](netj_generate.ipynb "netj_generate.ipynb") to generate input files from lists of run conditions
+2. Run[cfs_batchrun.ipynb](cfs_batchrun.ipynb) to send the generated .netj files to CFS and run the simulations
+3. Run[PFRTP-Garrett.ipynb](PFRTP-Garrett.ipynb) to use Cantera to perform the same simulations. This will generate dot files for the path diagram created by the Cantera simulation, which will be used to select which species are relevant for the CFS path diagram. (Not all species available should be chosen, as CFS*will* crash)
+4. Run[cfs_post.ipynb](cfs_post.ipynb), and select .netj files. The program will run the GUI form of CFS, and use the dot file from PFRTP-Garrett Cantera simulation of the same conditions to choose which species data to include in the vtk file. The program can handle multiple files, and will go through them in sequence.`<font color=red>`**IMPORTANT**`</font>` DO NOT MOVE THE MOUSE UNTIL THE SCRIPT COMPLETES!
+5. Run[cfs2canteraPD.ipynb](cfs2canteraPD.ipynb) to generate path diagrams using Cantera from the streamline_pp.vtk file. Path diagrams are specific to trajectory, residence time, and the threshold for the minimum relative flux to qualify as a major species.
 
 # Problems
 
@@ -37,8 +39,6 @@
 4. Several reactions are “ambiguous” and cantera will use the designated default reaction
    1. Default reaction may not be conducive for simulating C2F6
 5. Some reactions are not parsed (they may just not be relevant)
-6. cfs2canteraPD will create a valid path diagram for CF4 at 45kW injected at port 4. Tolerance = 0.0001, cutoff = 1e-20, threshold = 0.01. Will not create valid diagram for CF3CF3 in any condition, or CF4 in conditons:
-7. PFRTP-Garrett does not make valid diagrams for CF4 @ 27.5 kW
 
 <table border="1">
 <caption><h4>Validated Path Diagrams - CFS</h4></caption>
@@ -287,3 +287,11 @@
 <td colspan='1' style='border-right: 2px solid white; border-bottom: 2px solid white;'>  ✓   </td><!-- C2F6 8-->
 </tr>
 </table>
+
+<h2> Files </h2>
+
+
+| File Name                    | Path                                                                                                 | Purpose                           |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------ | ----------------------------------- |
+| lagrangian hi ress mass frac | L:\Lab\AMCD_PFAS_Incineration\Modeling_GPD\Cantera\PFR DE S Curves\lagrangian hi res mass frac.ipynb | Plots fluorinated and chlorinated |
+|                              |                                                                                                      |                                   |

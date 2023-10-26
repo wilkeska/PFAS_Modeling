@@ -6,6 +6,8 @@
 !cfs_runs
 !*stream
 !readme.md
+!readme.tex
+!readme.pdf
 *.vtk
 # .net and .netj files
 *.net

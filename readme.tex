@@ -1,0 +1,258 @@
+\documentclass{article}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{hyperref}
+\usepackage{colortbl}
+\usepackage{xcolor}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage[legalpaper, portrait, margin=1in]{geometry}
+\begin{document}
+
+\section*{TODO}
+\begin{enumerate}
+    \item Find how garrett made charts in his manuscript 
+    \item Make charts better or change input data
+\end{enumerate}
+
+\subsection*{cfs2canteraPD}
+\begin{enumerate}
+    \item Get injected\_species from netj\_file
+    \item Get conc\_cutoff from netj\_file (inject conc)
+    \item Make it run PFRTP-Garrett and cfs\_post if needed
+\end{enumerate}
+
+\subsection*{cfs\_post}
+\begin{enumerate}
+    \item Make trajectory selection faster
+    \item Make it run PFRTP-Garrett if needed
+\end{enumerate}
+
+\subsection*{PFRTP-Garrett}
+\begin{enumerate}
+    \item Make interactive widget to choose run conditions
+    \item Fix thing with flame temperature estimate
+    \item Temperatures shouldn't go down then back up
+\end{enumerate}
+
+\section*{Instructions}
+\begin{enumerate}
+    \item Run \href{netj_generate.ipynb}{netj\_generate.ipynb} to generate input files from lists of run conditions
+    \item Run \href{cfs_batchrun.ipynb}{cfs\_batchrun.ipynb} to send the generated .netj files to CFS and run the simulations
+    \item Run \href{PFRTP-Garrett.ipynb}{PFRTP-Garrett.ipynb} to use Cantera to perform the same simulations.
+    \item Run \href{cfs_post.ipynb}{cfs\_post.ipynb}, and select .netj files.
+    \item Run \href{cfs2canteraPD.ipynb}{cfs2canteraPD.ipynb} to generate path diagrams using Cantera.
+\end{enumerate}
+
+\section*{Problems}
+\begin{enumerate}
+    \item There are many many .ipynb files in Modeling\_GPD, many of which are near duplicates of each other, scattered across folders. It is difficult to tell which ones are the most up to date and which ones are obsolete.
+    \item Residence Time column from cantera has no duplicate times. CFS will have 3-7 rows of identical times
+    \item Concentrations of non-major species in cantera are around 1e-100, in CFS they are around 1e-15
+    \begin{enumerate}
+        \item Produces problems for reaction path diagrams because cantera can’t tell which is the major species
+        \item Concentrations are all 0 until injection, then they all instantly increase
+        \item CFS spray settings may introduce significant concentrations from transient phase?
+    \end{enumerate}
+    \item CF3Or has ~15 reactions, CF2s has ~74, CF4 ~15, C2F6 ~6. C2F6 behavior in path diagrams may be caused by incomplete reactions
+    \item Several reactions are “ambiguous” and cantera will use the designated default reaction
+    \begin{enumerate}
+        \item Default reaction may not be conducive for simulating C2F6
+    \end{enumerate}
+    \item Some reactions are not parsed (they may just not be relevant)
+\end{enumerate}
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.256}
+\caption{Files, Paths, and Descriptions}
+\begin{tabular}{>{\centering\arraybackslash}m{.3\textwidth}>{\scriptsize\centering\arraybackslash}m{0.4\textwidth}>{\footnotesize\centering\arraybackslash}m{0.3\textwidth}}\toprule
+
+\normalsize{\textbf{File}} & \normalsize{\textbf{Path}} & \normalsize{\textbf{Description}} \\\cmidrule(r){1-1}\cmidrule(lr){2-2}\cmidrule(l){3-3}
+
+netj\_generate.ipynb & path & Takes a set of varying run conditions and produces netj files to do all iterations \\
+cfs\_batchrun.ipynb & path1 & Uses CFS batch method to run generated netj files, prompts user for inputs to determine simulation duration \\
+PFRTP-Garrett.ipynb & path2 & Uses a PFR simulation in Cantera to make similar results as CFS \\
+cfs\_post.ipynb & path3 & Runs CFS in GUI mode to automate post-processing of vtk files to include species concentration \\
+cfs2canteraPD.ipynb & path4 & Converts vtk to csv data, then produces a path diagram using Cantera for a specified trajectory, residence time, and threshold. \\
+lagrangian hi res mass frac.ipynb & L:/Lab/AMCD\_PFAS\_Incineration/Modeling\_GPD/ Cantera/PFR DE S Curves/ & Makes plots of multiple species DE\% vs Temperature \\
+eulerian \(<\)injectant\(>\).ipynb & L:/Lab/AMCD\_PFAS\_Incineration/Modeling\_GPD/ Cantera/influent\ concentration/ & Make multidimensional color plots for conc. vs Temperature vs DE\%. Also absolute and relative yield vs conc. \\
+paths \(<\)SR\(>\).ipynb & L:/Lab/AMCD\_PFAS\_Incineration/Modeling\_GPD/ Cantera/paths/ & Makes path diagrams for several species at specified SR \\
+T99.ipynb & L:/Lab/AMCD\_PFAS\_Incineration/Modeling\_GPD/ Cantera/T99/ & Makes T99 plots of multiple species \\
+lagrangian.ipynb & L:/Lab/AMCD\_PFAS\_Incineration/Modeling\_GPD/ Cantera/PFR\ DE\ S\ Curves/archive/ & Makes plots of species DE vs Temperature. Plots from this script don't look the same as plots in the doc, so it is probably outdated. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\pagebreak
+\begin{table}[H] %cfs valid diagrams
+\centering
+\caption{Validated Path Diagrams - CFS}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+& \multicolumn{4}{c|}{CF4} & \multicolumn{4}{c|}{CHF3} & \multicolumn{4}{c|}{C2F6} \\
+\hline
+& \multicolumn{4}{c|}{Ports} & \multicolumn{4}{c|}{Ports} & \multicolumn{4}{c|}{Ports} \\
+\hline
+& 1 & 4 & 6 & 8 & 1 & 4 & 6 & 8 & 1 & 4 & 6 & 8 \\
+\hline
+27.5 kW 
+&                   %CF4 port 1
+&                   %CF4 port 4
+&                   %CF4 port 6
+&                   %CF4 port 8
+&                   %CHF3 port 1
+&                   %CHF3 port 4
+&                   %CHF3 port 6
+&                   %CHF3 port 8
+&    \texttimes     %C2F6 port 1
+&                   %C2F6 port 4
+&                   %C2F6 port 6
+&    \texttimes \\  %C2F6 port 8
+\hline
+45 kW 
+&   \texttimes      %CF4 port 1
+&   \checkmark      %CF4 port 4
+&                   %CF4 port 6
+&                   %CF4 port 8
+&                   %CHF3 port 1
+&                   %CHF3 port 4
+&                   %CHF3 port 6
+&                   %CHF3 port 8
+&  \texttimes       %C2F6 port 1
+&  \texttimes       %C2F6 port 4
+&                   %C2F6 port 6
+&  \texttimes   \\  %C2F6 port 8
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H] %cantera valid diagrams
+\centering
+\caption{Validated Path Diagrams - Cantera}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+& \multicolumn{4}{c|}{CF4} & \multicolumn{4}{c|}{CHF3} & \multicolumn{4}{c|}{C2F6} \\
+\hline
+& \multicolumn{4}{c|}{Ports} & \multicolumn{4}{c|}{Ports} & \multicolumn{4}{c|}{Ports} \\
+\hline
+& 1 & 4 & 6 & 8 & 1 & 4 & 6 & 8 & 1 & 4 & 6 & 8 \\
+\hline
+27.5 kW 
+&\texttimes         %CF4 port 1
+&\texttimes         %CF4 port 4
+&\texttimes         %CF4 port 6
+&\texttimes         %CF4 port 8
+&                   %CHF3 port 1
+&                   %CHF3 port 4
+&                   %CHF3 port 6
+&                   %CHF3 port 8
+&\checkmark         %C2F6 port 1
+&\checkmark         %C2F6 port 4
+&\checkmark         %C2F6 port 6
+&\checkmark     \\  %C2F6 port 8
+\hline
+45 kW 
+&\checkmark         %CF4 port 1
+&\checkmark         %CF4 port 4
+&\checkmark         %CF4 port 6
+&\checkmark         %CF4 port 8
+&                   %CHF3 port 1
+&                   %CHF3 port 4
+&                   %CHF3 port 6
+&                   %CHF3 port 8
+&\checkmark         %C2F6 port 1
+&\checkmark         %C2F6 port 4
+&\checkmark         %C2F6 port 6
+&\checkmark     \\  %C2F6 port 8
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H] %cfs executed simulations
+\centering
+\caption{CFS Executed Simulations}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+& \multicolumn{4}{c|}{CF4} & \multicolumn{4}{c|}{CHF3} & \multicolumn{4}{c|}{C2F6} \\
+\hline
+& \multicolumn{4}{c|}{Ports} & \multicolumn{4}{c|}{Ports} & \multicolumn{4}{c|}{Ports} \\
+\hline
+& 1 & 4 & 6 & 8 & 1 & 4 & 6 & 8 & 1 & 4 & 6 & 8 \\
+\hline
+27.5 kW 
+&                   %CF4 port 1
+&\checkmark         %CF4 port 4
+&                   %CF4 port 6
+&                   %CF4 port 8
+&                   %CHF3 port 1
+&                   %CHF3 port 4
+&                   %CHF3 port 6
+&                   %CHF3 port 8
+&\checkmark         %C2F6 port 1
+&\checkmark         %C2F6 port 4
+&\checkmark         %C2F6 port 6
+&\checkmark     \\  %C2F6 port 8
+\hline
+45 kW 
+&\checkmark         %CF4 port 1
+&\checkmark         %CF4 port 4
+&                   %CF4 port 6
+&                   %CF4 port 8
+&\checkmark         %CHF3 port 1
+&\checkmark         %CHF3 port 4
+&\checkmark         %CHF3 port 6
+&                   %CHF3 port 8
+&\checkmark         %C2F6 port 1
+&\checkmark         %C2F6 port 4
+&\checkmark         %C2F6 port 6
+&\checkmark     \\  %C2F6 port 8
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H] %cantera executed simulations
+\centering
+\caption{Cantera Executed Simulations}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+& \multicolumn{4}{c|}{CF4} & \multicolumn{4}{c|}{CHF3} & \multicolumn{4}{c|}{C2F6} \\
+\hline
+& \multicolumn{4}{c|}{Ports} & \multicolumn{4}{c|}{Ports} & \multicolumn{4}{c|}{Ports} \\
+\hline
+& 1 & 4 & 6 & 8 & 1 & 4 & 6 & 8 & 1 & 4 & 6 & 8 \\
+\hline
+27.5 kW 
+&\checkmark         %CF4 port 1
+&\checkmark         %CF4 port 4
+&\checkmark         %CF4 port 6
+&\checkmark         %CF4 port 8
+&                   %CHF3 port 1
+&                   %CHF3 port 4
+&                   %CHF3 port 6
+&                   %CHF3 port 8
+&\checkmark         %C2F6 port 1
+&\checkmark         %C2F6 port 4
+&\checkmark         %C2F6 port 6
+&\checkmark     \\  %C2F6 port 8
+\hline
+45 kW 
+&\checkmark         %CF4 port 1
+&\checkmark         %CF4 port 4
+&\checkmark         %CF4 port 6
+&\checkmark         %CF4 port 8
+&                   %CHF3 port 1
+&                   %CHF3 port 4
+&                   %CHF3 port 6
+&                   %CHF3 port 8
+&\checkmark         %C2F6 port 1
+&\checkmark         %C2F6 port 4
+&\checkmark         %C2F6 port 6
+&\checkmark     \\  %C2F6 port 8
+\hline
+\end{tabular}
+\end{table}
+
+\end{document}
