@@ -10,7 +10,7 @@
 \usepackage{hyperref}
 \usepackage{booktabs}
 \usepackage{soul}
-\usepackage{mhchem}
+\usepackage[version=4]{mhchem}
 \usepackage[legalpaper, portrait, margin=1in]{geometry}
 \begin{document}
 
@@ -86,7 +86,7 @@
 \centering
 \renewcommand{\arraystretch}{1.256}
 \caption{Files, Folders, and Descriptions}
-\begin{tabular}{>{\centering\arraybackslash}m{.3\textwidth}>{\scriptsize\centering\arraybackslash}m{0.4\textwidth}>{\footnotesize\centering\arraybackslash}m{0.3\textwidth}}\toprule
+\begin{tabular}{>{\centering\arraybackslash}m{.28\textwidth}>{\scriptsize\centering\arraybackslash}m{0.3\textwidth}>{\footnotesize\centering\arraybackslash}m{0.28\textwidth}}\toprule
 
 \normalsize{\textbf{File}}      & \normalsize{\textbf{Folder}}      & \normalsize{\textbf{Description}} \\\cmidrule(r){1-1}\cmidrule(lr){2-2}\cmidrule(l){3-3}
 
@@ -99,11 +99,11 @@ cfs2canteraPD.ipynb         & PFAS\_Modeling/       & Converts vtk to csv data, 
 pfr.ipynb       & PFAS\_Modeling/       & Example PFR that came with Cantera \\
 pfr2.ipynb      & PFAS\_Modeling/       & Example Cantera PFR that includes heat loss \\
 vtk2csv.py      & PFAS\_Modeling/       & Stand alone script for converting a specific vtk to a csv \\
-lagrangian hi res mass frac.ipynb       & L:/Lab/AMCD\_PFAS\_Incineration/Modeling\_GPD/ Cantera/PFR DE S Curves/       & Makes plots of multiple species DE\% vs Temperature \\
-eulerian \(<\)injectant\(>\).ipynb      & L:/Lab/AMCD\_PFAS\_Incineration/Modeling\_GPD/ Cantera/influent\ concentration/       & Make multidimensional color plots for conc. vs Temperature vs DE\%. Also absolute and relative yield vs conc. \\
-paths \(<\)SR\(>\).ipynb        & L:/Lab/AMCD\_PFAS\_Incineration/Modeling\_GPD/ Cantera/paths/     & Makes path diagrams for several species at specified SR \\
-T99.ipynb       & L:/Lab/AMCD\_PFAS\_Incineration/Modeling\_GPD/ Cantera/T99/       & Makes T99 plots of multiple species \\
-lagrangian.ipynb        & L:/Lab/AMCD\_PFAS\_Incineration/Modeling\_GPD/ Cantera/PFR\ DE\ S\ Curves/archive/    & Makes plots of species DE vs Temperature. Plots from this script don't look the same as plots in the doc, so it is probably outdated. \\
+lagrangian hi res mass frac.ipynb       & L:/Lab/AMCD\_PFAS\_Incineration/ Modeling\_GPD/Cantera/PFR DE S Curves/       & Makes plots of multiple species DE\% vs Temperature \\
+eulerian \(<\)injectant\(>\).ipynb      & L:/Lab/AMCD\_PFAS\_Incineration/ Modeling\_GPD/Cantera/influent\ concentration/       & Make multidimensional color plots for conc. vs Temperature vs DE\%. Also absolute and relative yield vs conc. \\
+paths \(<\)SR\(>\).ipynb        & L:/Lab/AMCD\_PFAS\_Incineration/ Modeling\_GPD/Cantera/paths/     & Makes path diagrams for several species at specified SR \\
+T99.ipynb       & L:/Lab/AMCD\_PFAS\_Incineration/ Modeling\_GPD/Cantera/T99/       & Makes T99 plots of multiple species \\
+lagrangian.ipynb        & L:/Lab/AMCD\_PFAS\_Incineration/ Modeling\_GPD/Cantera/PFR\ DE\ S\ Curves/archive/    & Makes plots of species DE vs Temperature. Plots from this script don't look the same as plots in the doc, so it is probably outdated. \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -278,34 +278,35 @@ lagrangian.ipynb        & L:/Lab/AMCD\_PFAS\_Incineration/Modeling\_GPD/ Cantera
 \end{table}
 
 \section*{Notes from Bill}
-Kaleb:
+% Kaleb:
 
-I have an idea on how to approach an introduction on the comparison of the thermal destruction of F and Cl species.  
-Back on the 1980s, EPA was mostly interested in chlorinated solvents and industrial important chlorinated compounds.  
-Prior to the use of industrial and commercial incinerators, these liquid wastes were commonly dumped into pits or buried in drums.  
-NCSU had their own Superfund site next to Carter-Finley.  
-Ocean dumping was also common.  
-Many of the Superfund sites that were or are still being cleaned up are the result of land disposal of these solvents.  
-Many chlorinated.
+% I have an idea on how to approach an introduction on the comparison of the thermal destruction of F and Cl species.  
+% Back on the 1980s, EPA was mostly interested in chlorinated solvents and industrial important chlorinated compounds.  
+% Prior to the use of industrial and commercial incinerators, these liquid wastes were commonly dumped into pits or buried in drums.  
+% NCSU had their own Superfund site next to Carter-Finley.  
+% Ocean dumping was also common.  
+% Many of the Superfund sites that were or are still being cleaned up are the result of land disposal of these solvents.  
+% Many chlorinated.
 
-EPA developed an Incinerability Index to rank the relative difficulty to thermally destroy a variety of compounds.  
-Over 300 species were evaluated experimentally.  
-I am attaching a report about this.  
-\hl{Table D-1 (page 109) lists the species by rank (1-320).
-Table D-2 (page 115) list these alphabetically.  }
-I believe that several fluorinated species are included (but not many).  
-Species were grouped into 7 Classes.  
-Class 1 most difficult to destroy. 
-Class 7 least difficult.
+% EPA developed an Incinerability Index to rank the relative difficulty to thermally destroy a variety of compounds.  
+% Over 300 species were evaluated experimentally.  
+% I am attaching a report about this.  
+% \hl{Table D-1 (page 109) lists the species by rank (1-320).
+% Table D-2 (page 115) list these alphabetically.  }
+% I believe that several fluorinated species are included (but not many).  
+% Species were grouped into 7 Classes.  
+% Class 1 most difficult to destroy. 
+% Class 7 least difficult.
 
 \begin{enumerate}
     \item go through these lists and identify any C1, C2, and possibly C3 F and Cl species and their ranking
     \item (CCl4 (\checkmark, 136-140), CHCl3(\checkmark, 195-196), C2Cl6(\checkmark, 202-203), CF4(\texttimes), CHF3(\texttimes), C2F6(\texttimes)) listed?
     \item other C1, C2, and C3 chloro or fluorocarbons
     \begin{table}
+        \caption{C1, C2, and C3 Chlorinated and Fluorinated Species}
         \centering
         \footnotesize
-        \begin{tabular}{>{\arraybackslash}m{.1\textwidth}>{\arraybackslash}m{.2\textwidth}>{\centering\arraybackslash}m{.1\textwidth}|>{\arraybackslash}m{.1\textwidth}>{\arraybackslash}m{.2\textwidth}>{\centering\arraybackslash}m{.1\textwidth}}\toprule
+        \begin{tabular}{>{\raggedright\arraybackslash}m{.1\textwidth}>{\raggedright\arraybackslash}m{.2\textwidth}>{\raggedright\centering\arraybackslash}m{.12\textwidth}|>{\raggedright\arraybackslash}m{.1\textwidth}>{\raggedright\arraybackslash}m{.2\textwidth}>{\raggedright\centering\arraybackslash}m{.12\textwidth}}\toprule
             Formula             & Species Name      & Incinerability Index  & Formula           & Species Name                  & Incinerability Index \\\cmidrule(r){1-1}\cmidrule(lr){2-3}\cmidrule(r){4-4}\cmidrule(r){5-6}
             \ce{CNCl}           & Cyanogen Chloride         & 17-18         & \ce{C3H6Cl2}      & 1,3-Dichloropropane           & 165       \\
             \ce{CH3Cl}          & Chloromethane             & 29-30         & \ce{C3H5Cl3}      & 1,2,3-Trichloropropane        & 168-173   \\
@@ -313,7 +314,7 @@ Class 7 least difficult.
             \ce{C2H3ClO2}       & Methyl Chloroformate      & 46-50         & \ce{C3H5ClO}      & 1-Chloro-2,3-epoxypropane     & 183-186   \\
             \ce{C2H2Cl2}        & Dichloroethene            & 54            & \ce{CHCl3S}       & Trichloromethanethiol         & 189-192   \\
             \ce{C2H4FNO}        & Fluoroacetamide           & 55-56         & \ce{C2Cl6}        & Hexachloroethane              & 202-203   \\
-            \ce{C2H3Cl}         & Vinyl Chloride            & 60-64         & \ce{C2H5ClO}      & Chloromethyl Methyl Ether     & 218,220   \\
+            \ce{C2H3Cl}         & Vinyl Chloride            & 60-64         & \ce{C2H5ClO}      & Chloromethyl Methyl Ether     & 218-220   \\
             \ce{CH2Cl2}         & Dichloromethane           & 65-66         & \ce{C2H4Cl2O}     & bis(Chloromethyl) Ether       & 222-223   \\
             \ce{C3H4Cl2}        & 1,2-Dichloropropene       & 89-91         & \ce{C3Cl6}        & Hexachloropropene             & 234       \\
             \ce{CH3COCl}        & Acetyl Chloride           & 92-97         &                   &                               &           \\
@@ -330,32 +331,31 @@ Class 7 least difficult.
         \end{tabular}
     \end{table}
     \item mixed Cl-F species?
+    \begin{itemize}
+        \item mainly CFCs
+    \end{itemize}
     \item analyze the fraction of chlorinated species, and number of fluorinated species included
+    \begin{itemize}
+        \item \hl{Does this mean \emph{all} chlorinated species, or only those with 1-3 C?}
+        \item There are 320 total species in the list. 
+        \item Chlorinated species account for 113 species. Chlorinated C1-C3 species account for 40 of them.
+        \item Fluorinated species account for 8 species. Only twe do not contain 1 to 3 carbons (Sulfur Hexafluoride and Fluoroacetic Acid)
+    \end{itemize}
     \item anything you think notable.
+    \begin{itemize}
+        \item It's interesting how the only fluorinated species on the list that aren't CFCs are \ce{SF6} and \ce{C2H3FO2}
+    \end{itemize}
     \item Find incinerability index for species %will hopefully support selection
 \end{enumerate}
  
-I’d like to begin the introduction of our Cl/F paper with a discussion of the Incinerability Index, and why we chose to study these 6 compounds. The main reasons are their \hl{combinations of different molecular structures} and bond types and their \hl{available/published kinetics}. %hopefully this will be supported by the incinerability index
+I’d like to begin the introduction of our Cl/F paper with a discussion of the Incinerability Index, and why we chose to study these 6 compounds. The main reasons are their \hl{combinations of different molecular structures}, bond types, and their \hl{available/published kinetics}. %hopefully this will be supported by the incinerability index
+%Talk about why the incinerability index is used instead of other measures. Talk about properties of these compounds.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
 
 As you will see many of the Class 1 species are PAHs with ring structures.  
-
-
-Many of these are chlorinated.  
-
-
-Fluorinated species (PFAS) were not even on the radar back then.  
-
-
-{\color{red}Since they were so stable, it was believed that they were inert.}  
-
-
-I see fluoroacetic acid (a close cousin to TFA) is listed 42-44 (tied with 2 other species).  
-%probably meaning to look at around those tiers in the list
+\begin{itemize}
+    \item Most of the PAHs have many carbons, so I'm not sure if they're relevant for the discussion of C1-C3 species
+\end{itemize}
 
 I’m thinking a discussion of these species and bond energies might be a good place to start.
-%make discussion of bond energies and structures
-
-Thanks,  Bill 
-
-
+%make discussion of bond energies and structures. By 'these species' does he mean the C1-C3 chlorinated and fluorinated compounds, the Class 1 Chlorinated PAHs, or all of the species in the incinerability index with Chlorine or Fluorine?
 \end{document}
