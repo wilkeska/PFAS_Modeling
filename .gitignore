@@ -8,6 +8,7 @@
 !readme.md
 !readme.tex
 !readme.pdf
+!thermal stability index.csv
 !.tmp
 *.vtk
 # .net and .netj files

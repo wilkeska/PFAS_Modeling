@@ -190,3 +190,79 @@ Cantera Executed Simulations
 |        |   1   | 4 | 6 | 8 |   1   | 4 | 6 | 8 |   1   | 4 | 6 | 8 |
 | 27.5 kW |   y   | y | y | y |      |  |  |  |   y   | y | y | y |
 |  45 kW  |   y   | y | y | y |      |  |  |  |   y   | y | y | y |
+
+
+# Notes from Bill
+
+Kaleb:
+
+I have an idea on how to approach an introduction on the comparison of
+the thermal destruction of F and Cl species. Back on the 1980s, EPA was
+mostly interested in chlorinated solvents and industrial important
+chlorinated compounds. Prior to the use of industrial and commercial
+incinerators, these liquid wastes were commonly dumped into pits or
+buried in drums. NCSU had their own Superfund site next to
+Carter-Finley. Ocean dumping was also common. Many of the Superfund
+sites that were or are still being cleaned up are the result of land
+disposal of these solvents. Many chlorinated.
+
+EPA developed an Incinerability Index to rank the relative difficulty to
+thermally destroy a variety of compounds. Over 300 species were
+evaluated experimentally. I am attaching a report about this. I believe
+that several fluorinated species are included (but not many). Species
+were grouped into 7 Classes. Class 1 most difficult to destroy. Class 7
+least difficult.
+
+1. go through these lists and identify any C1, C2, and possibly C3 F
+   and Cl species and their ranking
+2. (CCl4 (, 136-140), CHCl3(, 195-196), C2Cl6(, 202-203), CF4(),
+   CHF3(), C2F6()) listed?
+3. | This is all messed up -\\(+_+)/- |                        |                      |         |                           |                      |
+   | :------------------------------- | :--------------------- | :------------------- | :------ | :------------------------ | :------------------- |
+   | Formula                          | Species Name           | Incinerability Index | Formula | Species Name              | Incinerability Index |
+   | (r)1-1(lr)2-3(r)4-4(r)5-6        | Cyanogen Chloride      | -18                  |         | ,3-Dichloropropane        |                      |
+   |                                  | Chloromethane          | -30                  |         | ,2,3-Trichloropropane     | -173                 |
+   |                                  | Phosgene               | -40                  |         | ,1-Dichloroethane         | -178                 |
+   |                                  | Methyl Chloroformate   | -50                  |         | -Chloro-2,3-epoxypropane  | -186                 |
+   |                                  | Dichloroethene         |                      |         | Trichloromethanethiol     | -192                 |
+   |                                  | Fluoroacetamide        | -56                  |         | Hexachloroethane          | -203                 |
+   |                                  | Vinyl Chloride         | -64                  |         | Chloromethyl Methyl Ether | ,220                 |
+   |                                  | Dichloromethane        | -66                  |         | bis(Chloromethyl) Ether   | -223                 |
+   |                                  | ,2-Dichloropropene     | -91                  |         | Hexachloropropene         |                      |
+   |                                  | Acetyl Chloride        | -97                  |         |                           |                      |
+   |                                  | Tetrachloroethane      | -125                 |         |                           |                      |
+   |                                  | Chloroethane           |                      |         |                           |                      |
+   |                                  | Dichloroethane         |                      |         |                           |                      |
+   |                                  | -Chloropropionitrile   | -144                 |         |                           |                      |
+   |                                  | ,3-Dichloropropan-2-ol | -146                 |         |                           |                      |
+   |                                  | Chlorodifluoromethane  | -153                 |         |                           |                      |
+   |                                  | Dichlorofluoromethane  | -157                 |         |                           |                      |
+   |                                  | Pentachloroethane      | -157                 |         |                           |                      |
+   |                                  | Trichloroethane        | -161                 |         |                           |                      |
+   |                                  | Chloroform             | -161                 |         |                           |                      |
+4. mixed Cl-F species?
+5. analyze the fraction of chlorinated species, and number of
+   fluorinated species included
+6. anything you think notable.
+7. Find incinerability index for species
+
+I’d like to begin the introduction of our Cl/F paper with a discussion
+of the Incinerability Index, and why we chose to study these 6
+compounds. The main reasons are their and bond types and their .
+
+As you will see many of the Class 1 species are PAHs with ring
+structures.
+
+Many of these are chlorinated.
+
+Fluorinated species (PFAS) were not even on the radar back then.
+
+Since they were so stable, it was believed that they were inert.
+
+I see fluoroacetic acid (a close cousin to TFA) is listed 42-44 (tied
+with 2 other species).
+
+I’m thinking a discussion of these species and bond energies might be a
+good place to start.
+
+Thanks, Bill
