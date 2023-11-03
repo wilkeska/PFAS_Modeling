@@ -10,10 +10,10 @@
 \usepackage{hyperref}
 \usepackage{booktabs}
 \usepackage{soul}
+\usepackage{graphicx}
 \usepackage[version=4]{mhchem}
 \usepackage[legalpaper, portrait, margin=1in]{geometry}
 \begin{document}
-
 \section*{TODOp}
 \begin{enumerate}
     \item Find how garrett made charts in his manuscript 
@@ -43,7 +43,6 @@
     \item Fix thing with flame temperature estimate
     \item Temperatures shouldn't go down then back up
 \end{enumerate}
-
 \section*{Instructions}
 \begin{enumerate}
     \item Run \href{netj_generate.ipynb}{netj\_generate.ipynb} to generate input files from lists of run conditions
@@ -52,7 +51,6 @@
     \item Run \href{cfs_post.ipynb}{cfs\_post.ipynb}, and select .netj files.
     \item Run \href{cfs2canteraPD.ipynb}{cfs2canteraPD.ipynb} to generate path diagrams using Cantera.
 \end{enumerate}
-
 \section*{Problems}
 \begin{enumerate}
     \item There are many many .ipynb files in Modeling\_GPD, many of which are near duplicates of each other, scattered across folders. It is difficult to tell which ones are the most up to date and which ones are obsolete.
@@ -276,61 +274,38 @@ lagrangian.ipynb        & L:/Lab/AMCD\_PFAS\_Incineration/ Modeling\_GPD/Cantera
 \hline
 \end{tabular}
 \end{table}
-
-\section*{Notes from Bill}
-% Kaleb:
-
-% I have an idea on how to approach an introduction on the comparison of the thermal destruction of F and Cl species.  
-% Back on the 1980s, EPA was mostly interested in chlorinated solvents and industrial important chlorinated compounds.  
-% Prior to the use of industrial and commercial incinerators, these liquid wastes were commonly dumped into pits or buried in drums.  
-% NCSU had their own Superfund site next to Carter-Finley.  
-% Ocean dumping was also common.  
-% Many of the Superfund sites that were or are still being cleaned up are the result of land disposal of these solvents.  
-% Many chlorinated.
-
-% EPA developed an Incinerability Index to rank the relative difficulty to thermally destroy a variety of compounds.  
-% Over 300 species were evaluated experimentally.  
-% I am attaching a report about this.  
-% \hl{Table D-1 (page 109) lists the species by rank (1-320).
-% Table D-2 (page 115) list these alphabetically.  }
-% I believe that several fluorinated species are included (but not many).  
-% Species were grouped into 7 Classes.  
-% Class 1 most difficult to destroy. 
-% Class 7 least difficult.
-
+\section*{Emails with Bill}
 \begin{enumerate}
     \item go through these lists and identify any C1, C2, and possibly C3 F and Cl species and their ranking
     \item (CCl4 (\checkmark, 136-140), CHCl3(\checkmark, 195-196), C2Cl6(\checkmark, 202-203), CF4(\texttimes), CHF3(\texttimes), C2F6(\texttimes)) listed?
     \item other C1, C2, and C3 chloro or fluorocarbons
+    \item mixed Cl-F species?
     \begin{table}
         \caption{C1, C2, and C3 Chlorinated and Fluorinated Species}
         \centering
         \footnotesize
         \begin{tabular}{>{\raggedright\arraybackslash}m{.1\textwidth}>{\raggedright\arraybackslash}m{.2\textwidth}>{\raggedright\centering\arraybackslash}m{.12\textwidth}|>{\raggedright\arraybackslash}m{.1\textwidth}>{\raggedright\arraybackslash}m{.2\textwidth}>{\raggedright\centering\arraybackslash}m{.12\textwidth}}\toprule
-            Formula             & Species Name      & Incinerability Index  & Formula           & Species Name                  & Incinerability Index \\\cmidrule(r){1-1}\cmidrule(lr){2-3}\cmidrule(r){4-4}\cmidrule(r){5-6}
-            \ce{CNCl}           & Cyanogen Chloride         & 17-18         & \ce{C3H6Cl2}      & 1,3-Dichloropropane           & 165       \\
-            \ce{CH3Cl}          & Chloromethane             & 29-30         & \ce{C3H5Cl3}      & 1,2,3-Trichloropropane        & 168-173   \\
-            \ce{COCl2}          & Phosgene                  & 39-40         & \ce{C2H4Cl2}      & 1,1-Dichloroethane            & 175-178   \\
-            \ce{C2H3ClO2}       & Methyl Chloroformate      & 46-50         & \ce{C3H5ClO}      & 1-Chloro-2,3-epoxypropane     & 183-186   \\
-            \ce{C2H2Cl2}        & Dichloroethene            & 54            & \ce{CHCl3S}       & Trichloromethanethiol         & 189-192   \\
-            \ce{C2H4FNO}        & Fluoroacetamide           & 55-56         & \ce{C2Cl6}        & Hexachloroethane              & 202-203   \\
-            \ce{C2H3Cl}         & Vinyl Chloride            & 60-64         & \ce{C2H5ClO}      & Chloromethyl Methyl Ether     & 218-220   \\
-            \ce{CH2Cl2}         & Dichloromethane           & 65-66         & \ce{C2H4Cl2O}     & bis(Chloromethyl) Ether       & 222-223   \\
-            \ce{C3H4Cl2}        & 1,2-Dichloropropene       & 89-91         & \ce{C3Cl6}        & Hexachloropropene             & 234       \\
-            \ce{CH3COCl}        & Acetyl Chloride           & 92-97         &                   &                               &           \\
-            \ce{C2H2Cl4}        & Tetrachloroethane         & 121-125       &                   &                               &           \\
-            \ce{C2H5Cl}         & Chloroethane              & 126           &                   &                               &           \\
-            \ce{C2H4Cl2}        & Dichloroethane            & 131           &                   &                               &           \\
-            \ce{C3H4ClN}        & 3-Chloropropionitrile     & 143-144       &                   &                               &           \\
-            \ce{C3H6Cl2O}       & 1,3-Dichloropropan-2-ol   & 145-146       &                   &                               &           \\
-            \ce{CHClF2}         & Chlorodifluoromethane     & 151-153       &                   &                               &           \\
-            \ce{CHCl2F}         & Dichlorofluoromethane     & 154-157       &                   &                               &           \\
-            \ce{C2HCl5}         & Pentachloroethane         & 154-157       &                   &                               &           \\
-            \ce{C2H3Cl3}        & Trichloroethane           & 158-161       &                   &                               &           \\
-            \ce{CHCl3}          & Chloroform                & 158-161       &                   &                               &           \\\bottomrule
+            Formula             & Species Name                              & Incinerability Index  & Formula       & Species Name                  & Incinerability Index \\\cmidrule(r){1-1}\cmidrule(lr){2-3}\cmidrule(r){4-4}\cmidrule(r){5-6}
+            \ce{CNCl}           & Cyanogen Chloride                         & 17-18         &\ce{C3H4ClN}        & 3-Chloropropionitrile                     & 143-144       \\
+            \ce{CH3Cl}          & Chloromethane                             & 29-30         &\ce{C3H6Cl2O}       & 1,3-Dichloropropan-2-ol                   & 145-146       \\
+            \ce{COCl2}          & Phosgene                                  & 39-40         &\ce{CHClF2}         & Chlorodifluoromethane                     & 151-153       \\
+            \ce{C2H3ClO2}       & Methyl Chloroformate                      & 46-50         &\ce{CHCl2F}         & Dichlorofluoromethane                     & 154-157       \\
+            \ce{C2H2Cl2}        & Dichloroethene                            & 54            &\ce{C2HCl5}         & Pentachloroethane                         & 154-157       \\
+            \ce{C2H4FNO}        & Fluoroacetamide                           & 55-56         &\ce{C2H3Cl3}        & Trichloroethane                           & 158-161       \\
+            \ce{C2H3Cl}         & Vinyl Chloride                            & 60-64         &\ce{CHCl3}          & Chloroform                                & 158-161       \\
+            \ce{CH2Cl2}         & Dichloromethane                           & 65-66         &\ce{C3H6Cl2}        & 1,3-Dichloropropane                       & 165           \\
+            \ce{CClF2CCl2F}     & 1,2,2-Trichloro- 1,1,2-Trifluoroethane    & 81-84         &\ce{C3H5Cl3}        & 1,2,3-Trichloropropane                    & 168-173       \\
+            \ce{CCl2F2}         & Dichlorodifluoromethane                   & 85-88         &\ce{C2H4Cl2}        & 1,1-Dichloroethane                        & 175-178       \\
+            \ce{CCl3F}          & Trichlorofluoromethane                    & 85-88         &\ce{C3H5ClO}        & 1-Chloro-2,3-epoxypropane                 & 183-186       \\
+            \ce{C3H4Cl2}        & 1,2-Dichloropropene                       & 89-91         &\ce{CHCl3S}         & Trichloromethanethiol                     & 189-192       \\   
+            \ce{CH3COCl}        & Acetyl Chloride                           & 92-97         &\ce{C2Cl6}          & Hexachloroethane                          & 202-203       \\
+            \ce{C2H2Cl4}        & Tetrachloroethane                         & 121-125       &\ce{C2H5ClO}        & Chloromethyl Methyl Ether                 & 218-220       \\
+            \ce{C2H5Cl}         & Chloroethane                              & 126           &\ce{C2H4Cl2O}       & bis(Chloromethyl) Ether                   & 222-223       \\
+            \ce{C2H4Cl2}        & Dichloroethane                            & 131           &\ce{C3Cl6}          & Hexachloropropene                         & 234           \\
+            \ce{CCl4}           & Carbon Tetrachloride                      & 136-140       &                    &                                           &               \\ \bottomrule
         \end{tabular}
     \end{table}
-    \item mixed Cl-F species?
+    
     \begin{itemize}
         \item mainly CFCs
     \end{itemize}
@@ -350,7 +325,7 @@ lagrangian.ipynb        & L:/Lab/AMCD\_PFAS\_Incineration/ Modeling\_GPD/Cantera
  
 I’d like to begin the introduction of our Cl/F paper with a discussion of the Incinerability Index, and why we chose to study these 6 compounds. The main reasons are their \hl{combinations of different molecular structures}, bond types, and their \hl{available/published kinetics}. %hopefully this will be supported by the incinerability index
 
-\subsubsection*{Talk about why the incinerability index is used instead of other measures.}
+\textbf{Talk about why the incinerability index is used instead of other measures.}
 
 \subsubsection*{Talk about properties of these compounds.} 
 
@@ -373,7 +348,6 @@ Heat of combustion was used for a while, but it wasnt accurate because:
     \textbf{What is it about the kinetics that makes these representative compounds?}
 
         I think it's because the mechanisms of destruction of these compounds are expected to be used in more complex compounds. Basically, larger PFAS probably break apart into these compounds.
-
 \subsubsection*{Make comparisons of fluorinated and chlorinated compounds}
 
     All the fluorinated compounds have higher bond energies, and usually slightly denser molecules.
@@ -385,4 +359,54 @@ As you will see many of the Class 1 species are PAHs with ring structures.
 
 I’m thinking a discussion of these species and bond energies might be a good place to start.
 %make discussion of bond energies and structures. By 'these species' does he mean the C1-C3 chlorinated and fluorinated compounds, the Class 1 Chlorinated PAHs, or all of the species in the incinerability index with Chlorine or Fluorine?
+\subsubsection*{Email with Bill about Incinerability Index}
+\textbf{Thank you! This is a great summary.  I do not know how species were selected for incinerability ranking, but I had thought that all were evaluated experimentally.  Did you learn otherwise?}
+
+I was able to find that not all species in the index were evaluated experimentally. I found this paragraph in D.2, page 106 of the document: 
+
+“Currently, sixty-one compounds have been experimentally evaluated by UDRI .... These compounds, for which experimental data has been generated… are designated experimentallv evaluated and are listed in boldface. Compounds which have not been experimentally studied … but for which experimental data exist within the open literature, are listed in italics. The remaining compounds were ranked based on limited experimental data on the actual compound, data on similar compounds, and/or reaction kinetic theory. For this latter group, which includes the majority of the ranking, sufficient data were not available to designate the compounds as experimentally evaluated. Thus, their ranking should be considered tentative and subject to change following experimental study.”
+
+I think the ones that have more than just reaction kinetic theory are printed in bold or italicized, because the tables have this footnote at the bottom: 
+\begin{figure}[H]
+\centering
+\includegraphics*[width=0.8\textwidth]{images/index_footnote.png}
+\end{figure}
+ 
+I think that the species that are printed in plain formatting are not experimentally evaluated, and only come from reaction kinetics. So, in the below screen clip, I think Chloropropene and Tetrachloroethane are the only species that Taylor and Bellinger experimented evaluated. The Chloroethane and Hydrazine have some experimental data that was gathered from the literature, but Taylor and Bellinger didn’t get the data themselves. The remaining species I think only have reaction kinetics to support their position. 
+\begin{figure}[H]
+    \centering
+    \includegraphics*[width=0.8\textwidth]{images/exper_exam.png}
+    \end{figure}
+
+Also, I can see multiple parts of this document that say something like “this list is tentative and will be updated annually,” but I have not been able to find another index produced by the EPA. 
+
+\textbf{Did you learn why specific species were selected back in the 1980s?}
+I think they used the list of compounds from Appendix VIII to Part 261 (eCFR :: 40 CFR Chapter I Subchapter I -- Solid Wastes) because they say on page 106, “The ranking includes all individually-listed organic compounds included on the current Appendix VIII list. … Trace metal-containing compounds were not included in this ranking since the metal itself is a toxic moiety and is not destroyed in the incineration process.”
+
+\textbf{You mention 11 fluorinated species on the list.  On Table 6, I see: C2H4FNO, CHClF2, CHCl2F
+What are the others? Are they all mixed F-Cl species?  I assume they are either >C3 or not organic?  I believe that you indicate that none of our F species (CF4, CHF3, C2F6) are on the list but all our Cl species (CCl4 136-140, CHCl3 158-161, C2Cl6 202-203).  I don’t see CCl4 in Table 6.}
+The fluorinated species in the index are sulfur hexafluoride, fluoroacetic acid, fluoroacetamide, 1,2,2-Trichloro-1,1,2-Trifluoroethane, dichlorodifluoromethane, trichlorofluoromethane, chlorodifluoromethane, and dichlorofluoromethane, for a total of 8 fluorinated species. The original count of 11 is a mistake, because I was originally counting species with “fluorene” as fluorine, but the table has been updated to include the proper species. So, the final count is 8 fluorinated species with 6 organic species. I don’t think the list includes any >C3 fluorine species. I have also included CCl4 in the table.
+
+ 
+
+\textbf{\hl{I would like to understand why the Incinerability Index was designed the way it was.}  It predated me, but the idea was to either calculate or measure the ability to destroy a species in a specific reactor at a specific temp for a specific residence time.  PICs were not yet on the horizon.  This was done at the U of Dayton by a professor, Barry Dellinger, and his postdoc, Phil Taylor.  They would literally vaporize and introduce these chemicals into a hot tube furnace at a specific temp and measure the amount in the exhaust 1 or 2 sec later using an online GC/MS.  \hl{Can you learn how this was done specifically?}  They obviously didn’t care about F unless it was associated with Cl.  Remember, the concern back then was very Cl centric.  These were the days of Love Canal and the Valley of the Drums.  A lot of new Superfund sites were being discovered.  Most of the problem were associated with discarded chlorinated solvents.}
+
+I was able to find this paper (Thermal degradation characteristics of chloromethane mixtures | Environmental Science and Technology (acs.org)) that is referenced in the manual in section D.2, where they say “Currently, sixty-one compounds have been experimentally evaluated by UDRI under a consistent set of experimental conditions which was devised based on the previous discussion [Dellinger and Taylor (1987), Taylor and Dellinger (1987)].” 
+                
+After looking at that article, in the “Experimental Approach” section, it says, “Decomposition of chloromethanes and PIC formation as a function of temperature was measured by the combined analytical capability of the thermal decomposition unit-gas chromatographic system and the thermal decomposition analytical system….Details of these systems have been discussed at length elsewhere (26-28)” The articles it sources here are:
+\begin{figure}[H]
+    \centering
+    \includegraphics*[width=0.8\textwidth]{images/index_rubey_refs.png}
+    \end{figure}
+ 
+However, I am having some difficulty finding and accessing these articles because they are quite old. The article does have a description of how the system works in the Experimental Approach section, though I’m not sure if it’s detailed enough to really explain everything.
+
+\textbf{In the 1990s, during the atmospheric ozone crisis, NIST began studying small fluorocarbons that were being tested as replacement flame suppressants and later refrigerants.  This led to the F kinetic set we are now using.}
+\subsubsection*{Email with Bill about Tsang et al}
+Yes, the NIST mechanism initially only included C1 and C2 fluorocarbons.  Since then, it now includes some C3 species.  Even limited to C1-C3 fluorocarbons, I think it includes >1000 reactions.  Of course, if a species and reaction pathway is not included, the model cannot predict its formation, so larger species are not possible.
+
+First order reactions refer to those involving only 1 reactant.  Unimolecular decomposition like CHF3 to CF3(rad) + H (rad) is an example.  Second order reactions involve 2 reactants like CHF3 + OH(rad) to CF3(rad) + H2O.  Both result in a CF3(rad) but one is dependent on concentrations of two species and reaction rates of these two reactions may be very different.  Second order reactions do not need to result in molecular growth.  Second order reactions can happen even for C1 species.  Free radical reactions in flames are second order.  Some happen extremely fast.  They happen because concentrations of flame radicals are extremely high in flames.  
+
+Unimolecular decomposition (first order rxns) can happen anywhere if sufficient energies are available.  Second order reactions occur only in areas with both reactants in high concentrations.  \hl{Most kinetic studies focus on unimolecular reactions, most ignore the free radical chemistry that happen in flames.}  You’ll notice that the NCSU mechanism includes many second order reactions.
+
 \end{document}
