@@ -10,7 +10,8 @@
 !readme.pdf
 !thermal stability index.csv
 !.tmp
-!pseudo_PFR/MRE.ipynb
+!pseudo_PFR/
+
 *.vtk
 # .net and .netj files
 *.net
