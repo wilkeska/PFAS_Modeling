@@ -2,16 +2,10 @@
 import time
 tot_tic = time.time()
 import matplotlib.pyplot as plt
-from matplotlib import colormaps
-import sys
-import pandas as pd
 import numpy as np
-import tempfile
-from scipy import interpolate
-from scipy.interpolate import interp1d
 import os as os
 from math import atan2,degrees
-
+import h5py
 # %%
 injectants =        ['CCL4'] # list of injectants, must be in the mechanism file.
 injectant_concs =   [100] # injected species concentrations in furnace @ injection point (ppm)
@@ -25,7 +19,7 @@ post_injection_res_time_step = 1e-4 # residence time grid size (seconds)
 elsewhere_res_time_step = 1e-2 # residence time grid size (seconds)
 os.chdir(os.path.join(os.getcwd(), 'pseudo_PFR'))
 # %%
-import h5py
+
 # Read the column names and the data from the HDF5 file
 with h5py.File("sol.hdf5", 'r') as f:
     cantera_species = f['column_names'][:].tolist()
@@ -44,11 +38,6 @@ print(columns)
 
 # %%
 #spent way too much time making an interactive plot, but it's pretty cool
-import ipywidgets as widgets
-from ipywidgets import HTML
-import matplotlib.pyplot as plt
-import numpy as np
-from IPython.display import clear_output
 
 # List to store the species to plot
 species_to_plot = ['H', 'CL', 'CCL4','HCL','CLO','CCLO','CL2']
@@ -150,15 +139,12 @@ def update_plot(change=None):
     inch_y = pixel_y / plt.rcParams["figure.dpi"]
 
     _, ax = plt.subplots(figsize=(inch_x, inch_y))
-    cmap = colormaps['nipy_spectral'] # Replace 'viridis' with the name of the color map you want to use
-    colors = [cmap(i) for i in np.linspace(0, 1, len(species_to_plot))]
     global color_dict
-    color_dict = {}
+    color_dict = {'H': (0.0, 0.0, 0.0, 1.0), 'CL': (0.0, 0.0, 0.7255235294117647, 1.0), 'CCL4': (0.0, 0.6444666666666666, 0.7333666666666667, 1.0), 'HCL': (0.0, 0.7385313725490196, 0.0, 1.0), 'CLO': (0.7999666666666666, 0.9777666666666667, 0.0, 1.0), 'CCLO': (1.0, 0.1764705882352941, 0.0, 1.0), 'CL2': (0.8, 0.8, 0.8, 1.0)}
     for i, spec in enumerate(species_to_plot):
         mask = (tplot >= xlim[0]) & (tplot <= xlim[1])
         concentrations = sol[mask, columns.index(spec)]
-        color_dict[spec] = colors[i]
-        ax.plot(tplot[mask], concentrations, label=spec, color=colors[i])
+        ax.plot(tplot[mask], concentrations, label=spec, color=color_dict[spec])
     #make dictionary of colors for each species
     label_plot_lines(ax)
     ax.set_xlabel('Residence Time (seconds)')
