@@ -19,32 +19,26 @@ post_injection_res_time_step = 1e-4 # residence time grid size (seconds)
 elsewhere_res_time_step = 1e-2 # residence time grid size (seconds)
 os.chdir(os.path.join(os.getcwd(), 'pseudo_PFR'))
 # %%
+def init():
+    global cantera_species, sol, columns, tplot, Tplot, color_dict, species_to_plot, concentrations_glob
+    # Read the column names and the data from the HDF5 file
+    with h5py.File("sol.hdf5", 'r') as f:
+        cantera_species = f['column_names'][:].tolist()
+        sol = f['data'][:]
 
-# Read the column names and the data from the HDF5 file
-with h5py.File("sol.hdf5", 'r') as f:
-    cantera_species = f['column_names'][:].tolist()
-    sol = f['data'][:]
+    columns = ['Residence Time (seconds)', 'Temperature (K)'] + cantera_species
+    columns = [col.decode('utf-8') if isinstance(col, bytes) else col for col in columns]
+    # Convert newcantera_species to a list of strings
+    cantera_species = [species.decode('utf-8') for species in cantera_species]
 
-columns = ['Residence Time (seconds)', 'Temperature (K)'] + cantera_species
-columns = [col.decode('utf-8') if isinstance(col, bytes) else col for col in columns]
-# Convert newcantera_species to a list of strings
-cantera_species = [species.decode('utf-8') for species in cantera_species]
+    tplot = sol[:, 0]
+    Tplot = sol[:, 1]
 
-tplot = sol[:, 0]
-Tplot = sol[:, 1]
+    # List to store the species to plot
+    species_to_plot = ['H', 'CL', 'CCL4','HCL','CLO','CCLO','CL2']
+    # Calculate the minimum and maximum concentrations for each species
+    concentrations_glob = {species: sol[:, columns.index(species)] for species in species_to_plot}
 
-# %%
-print(columns)
-
-# %%
-#spent way too much time making an interactive plot, but it's pretty cool
-
-# List to store the species to plot
-species_to_plot = ['H', 'CL', 'CCL4','HCL','CLO','CCLO','CL2']
-# Calculate the minimum and maximum concentrations for each species
-concentrations_glob = {species: sol[:, columns.index(species)] for species in species_to_plot}
-
-# %%
 def labelLine(line,x,label=None,align=True,**kwargs):
 
     ax = line.axes
@@ -248,10 +242,11 @@ def label_plot_lines(ax):
     #     print(f" midpoints - {midpoint}")
         # Calculate and print Adjusted Value here
     labelLines(lines, xvals=adjusted_xvals, align=True)
+init()
 update_plot()
 
 
-# %%
+# %% example of label_plot_lines, to make sure functions work in normal cases
 plt.figure()
 #make a bunch of lines, using linear, polynomial, exponential, and trigonometric functions
 x = np.linspace(0, 10, 100)
